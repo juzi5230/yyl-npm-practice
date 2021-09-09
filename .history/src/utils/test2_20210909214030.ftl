@@ -94,23 +94,23 @@ a:active {
     <section class="break-page catalogue">
       <div>目录</div>
       <#list data as detail>
-        <a class="main-title" href="#${detail.title}">${detail.title}</a>
+        <div class="main-title">${detail.title}
         <#list detail.children as child>
           <div class="sub-title">
-            <a href="#${child.title}">${child.title}</a>
+            <a href="#${child.title}">${child.title}
           </div>
         </#list>
       </#list>
     </section>
 
     <#list data as detail>      
-      <div class="report-block  break-page">
-        <a name="${detail.title}" class="main-title algn-center">${detail.title}</a>
+      <div class="report-block">
+        <div name="${detail.title}" class="main-title algn-center">${detail.title}
         <#list detail.children as child>
           <div>
-            <a name="${child.title}" class="sub-title">${child_index + 1}、 ${child.title}</a>
+            <a name="${child.title}" class="sub-title">${child_index + 1}、 ${child.title}
             <p>(数据质量：${child.data.quality})</p>
-            <table width="96%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
+            <table width="96%" border="0" align="center" cellspacing="0" cellpadding="0" class="table break-page">
                 <tr>
                    <#list child.data.th as thDetail>
                      <td>${thDetail}</td>

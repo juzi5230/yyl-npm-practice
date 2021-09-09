@@ -56,18 +56,6 @@ td {
    page-break-after: always;
    background: lightblue;
 }
-.report-block {
-    margin: 40px 0;
-}
-.main-title {
-    font-size: 20px;
-}
-.sub-title {
-    font-size: 16px;
-}
-.algn-center {
-    text-align: center;
-}
 a {
     text-decoration: none;
     color: black;
@@ -94,23 +82,23 @@ a:active {
     <section class="break-page catalogue">
       <div>目录</div>
       <#list data as detail>
-        <a class="main-title" href="#${detail.title}">${detail.title}</a>
+        <div>${detail.title}
         <#list detail.children as child>
-          <div class="sub-title">
-            <a href="#${child.title}">${child.title}</a>
+          <div>
+            <a href="#${child.title}">${child.title}
           </div>
         </#list>
       </#list>
     </section>
 
     <#list data as detail>      
-      <div class="report-block  break-page">
-        <a name="${detail.title}" class="main-title algn-center">${detail.title}</a>
+      <div>
+        <div name="${detail.title}">${detail.title}
+        <p>(数据质量：${detail.data.quality})</p>
         <#list detail.children as child>
           <div>
-            <a name="${child.title}" class="sub-title">${child_index + 1}、 ${child.title}</a>
-            <p>(数据质量：${child.data.quality})</p>
-            <table width="96%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
+            <a name="${child.title}">${child_index + 1}、 ${child.title}
+            <table width="96%" border="0" align="center" cellspacing="0" cellpadding="0" class="table break-page">
                 <tr>
                    <#list child.data.th as thDetail>
                      <td>${thDetail}</td>

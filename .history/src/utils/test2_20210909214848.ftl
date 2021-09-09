@@ -105,7 +105,7 @@ a:active {
 
     <#list data as detail>      
       <div class="report-block  break-page">
-        <a name="${detail.title}" class="main-title algn-center">${detail.title}</a>
+        <div name="${detail.title}" class="main-title algn-center">${detail.title}</div>
         <#list detail.children as child>
           <div>
             <a name="${child.title}" class="sub-title">${child_index + 1}、 ${child.title}</a>

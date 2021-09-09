@@ -94,7 +94,7 @@ a:active {
     <section class="break-page catalogue">
       <div>目录</div>
       <#list data as detail>
-        <a class="main-title" href="#${detail.title}">${detail.title}</a>
+        <div class="main-title" href="#${detail.title}">${detail.title}</div>
         <#list detail.children as child>
           <div class="sub-title">
             <a href="#${child.title}">${child.title}</a>
@@ -105,7 +105,7 @@ a:active {
 
     <#list data as detail>      
       <div class="report-block  break-page">
-        <a name="${detail.title}" class="main-title algn-center">${detail.title}</a>
+        <div name="${detail.title}" class="main-title algn-center">${detail.title}</div>
         <#list detail.children as child>
           <div>
             <a name="${child.title}" class="sub-title">${child_index + 1}、 ${child.title}</a>
