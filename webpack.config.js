@@ -40,6 +40,10 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.ftl$/,
+        loader: 'freemarker2js-loader'
       }
     ]
   },

@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
+// import $ form './'
+import $ from './utils/jquery'
 import { Button, NavBar,Icon, Search,Col, Row ,CellGroup, Cell, Checkbox, CheckboxGroup} from 'vant';
 
 Vue.use(Button);

@@ -29,6 +29,7 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
+    "freemarker2js-loader": "^1.0.1",
     "postcss-import": "^12.0.1",
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-url": "^8.0.0",
