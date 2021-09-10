@@ -64,8 +64,9 @@
 </style>
 </head>
 <body>
-    <a name="${roomList[0].provName} ${roomList[0].dcName} ${roomList[0].roomName}" class="main-title algn-center block">${roomList[0].provName} ${roomList[0].dcName} ${roomList[0].roomName}</a>
-    <#list roomList[0].tableList as detail>    
+   <#list roomList as list>
+    <a name="${list.provName} ${list.dcName} ${list.roomName}" class="main-title algn-center block">${list.provName} ${list.dcName} ${list.roomName}</a>
+    <#list list.tableList as detail>    
         <div class="report-block  break-page" >
           <div>
             <a name="${detail.tableZhName}" class="sub-title">${detail_index + 1}、 ${detail.tableZhName}</a>
@@ -83,11 +84,13 @@
             实际上传${detail.sasize}条，正确上传${detail.correctNum}条，共需上传字段${detail.colASize}个，其中异常字段${detail.colM2Size}个，空字段${detail.colM1Size}个
           </p>
           <p class="annotation">
-          <#if detail.idAirInformation === 1>
-            其它：与空调静态数据表ID一致；与空调静态数据表条数一致。
-          </#if>
-          <#if detail.idAirInformation !== 1>
-            其它：与空调静态数据表ID不一致；与空调静态数据表条数不一致。
+          <#if detail.tableEnName === 'dwd_eda_res_dc_air_conditioner_data_day'>
+            <#if detail.idAirInformation === 1>
+              其它：与空调静态数据表ID一致；与空调静态数据表条数一致。
+            </#if>
+            <#if detail.idAirInformation !== 1>
+              其它：与空调静态数据表ID不一致；与空调静态数据表条数不一致。
+            </#if>
           </#if>
           </p>
           <#if detail.stime === -1>
@@ -95,23 +98,25 @@
               该表要求每小时上传一条数据，目前上传频率不符合要求
             </p>
           </#if>
-          <div>
-            <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
-                <tr class="th">
-                   <#list detail.abnormalFieldsAdvice as thDetail>
-                     <td>${thDetail.colName}</td>
-                   </#list>
-                </tr>
-                <tr>
-                   <#list detail.abnormalFieldsAdvice as tdDetail>
-                     <td>${tdDetail.fieldQualityPercent}</td>
-                   </#list>
-                </tr>
-            </table>
-            <#if detail.attation??>
-              <div>${detail.attation}</div>
-            </#if>
-          </div>
+          <#--
+            <div>
+              <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
+                  <tr class="th">
+                     <#list detail.abnormalFieldsAdvice as thDetail>
+                       <td>${thDetail.colName}</td>
+                     </#list>
+                  </tr>
+                  <tr>
+                     <#list detail.abnormalFieldsAdvice as tdDetail>
+                       <td>${tdDetail.fieldQualityPercent}</td>
+                     </#list>
+                  </tr>
+              </table>
+              <#if detail.attation??>
+                <div>${detail.attation}</div>
+              </#if>
+            </div>
+          -->
           <div>
             <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
               <#if detail.abnormalFieldsAdvice?size>
@@ -135,5 +140,6 @@
           </div>
         </div>
     </#list>
+  </#list>
 </body>
 </html>
