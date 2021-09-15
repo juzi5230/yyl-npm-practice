@@ -20,12 +20,17 @@
     margin-left: auto;
   }
   .table td {
-    border: 1px solid #333333;
     border-collapse: collapse;
     padding: 7px;
   }
+  .table-content {
+    border: none;
+    border-bottom: 1px solid #f1f1;
+  }
   .th {
-      background: lightgrey;
+      background: #f1f1f1;
+      text-align: center;
+      border: 1px solid #cccccc;
   }
   .report-block {
     margin: 40px 20px;
@@ -58,15 +63,43 @@
   a:active {
     text-decoration: none;
   }
+  .cleanfloat {
+    display: inline-block;
+  }
+  .cleanfloat::after{
+    display: block;
+    clear: both;
+    content:"";
+    visibility: hidden;
+    height: 0;
+  }/*清浮动*/
+  ul li {
+    list-style:none;
+    float:left;
+    font-size: 12px;
+    margin:5px;
+    color:#ccc;
+    cursor:pointer;
+  }/*五角星样式*/
+  .hs,.cs{color:#f00;}
 </style>
 </head>
 <body>
     <a name="${data.provName} ${data.dcName} ${data.roomName}" class="main-title algn-center block">${data.provName} ${data.dcName} ${data.roomName}</a>
     <#list data.tableList as detail>    
-        <div class="report-block" >
+        <div class="report-block">
           <div>
             <a name="${detail.tableZhName}" class="sub-title">${detail_index + 1}、 ${detail.tableZhName}</a>
             <span>(质量星级: 
+              <ul class="cleanfloat">
+                  <#list 1..5 as a>
+                    <#if a_index + 1 lte detail.qualityStar>
+                      <li class="cs">&#9733;</li>
+                    <#else>
+                      <li class="">&#9733;</li>
+                    </#if>
+                  </#list>
+              </ul>
               <#if detail.qualityStar == "5" ||detail.qualityStar == "4">
                 好
               <#elseif detail.qualityStar == "3" || detail.qualityStar == "2">
@@ -76,9 +109,25 @@
               </#if>)
             </span>
           </div>
-          <p class="annotation">
-            实际上传${detail.sasize}条，正确上传${detail.correctNum}条，共需上传字段${detail.colASize}个，其中异常字段${detail.colM2Size}个，空字段${detail.colM1Size}个
-          </p>
+          <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
+            <tr class="th sub-title">
+              <td colspan=5>${detail.tableZhName}质量评估</td>
+            </tr>
+            <tr class="table-content">
+               <td>实际上传/条</td>
+               <td>正确上传/条</td>
+               <td>共需上传字段/条</td>
+               <td>异常字段/条</td>
+               <td>空字段/条</td>
+            </tr>
+            <tr class="table-content">
+              <td>${detail.sasize}</td>
+              <td>${detail.correctNum}</td>
+              <td>${detail.colASize}</td>
+              <td>${detail.colM2Size}</td>
+              <td>${detail.colM1Size}</td>
+            </tr>
+          </table>
           <p class="annotation">
           <#if detail.tableEnName == 'dwd_eda_res_dc_air_conditioner_data_day'>
             <#if detail.idAirInformation == 1>
@@ -94,36 +143,20 @@
               该表要求每小时上传一条数据，目前上传频率不符合要求
             </p>
           </#if>
-          <#--
-            <div>
-              <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
-                  <tr class="th">
-                     <#list detail.abnormalFieldsAdvice as thDetail>
-                       <td>${thDetail.colName}</td>
-                     </#list>
-                  </tr>
-                  <tr>
-                     <#list detail.abnormalFieldsAdvice as tdDetail>
-                       <td>${tdDetail.fieldQualityPercent}</td>
-                     </#list>
-                  </tr>
-              </table>
-              <#if detail.attation??>
-                <div>${detail.attation}</div>
-              </#if>
-            </div>
-          -->
           <div>
             <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
               <#if (detail.abnormalFieldsAdvice?size > 0)>
-                <tr class="th">
+                <tr class="th sub-title">
+                  <td colspan=3 >问题明细</td>
+                </tr>
+                <tr class=" class="table-content"">
                    <td>异常字段名称</td>
                    <td>为空和异常数占比</td>
                    <td>建议</td>
                 </tr>
               </#if>
               <#list detail.abnormalFieldsAdvice as tdDetail>
-                 <tr>
+                 <tr class="table-content">
                    <td>${tdDetail.colName}</td>
                    <td>${tdDetail.fieldQualityPercent * 100} %</td>
                    <td>${tdDetail.fieldAdvice}</td>

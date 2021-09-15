@@ -6,8 +6,8 @@
 
 <script>
 import yylnpmpractice from './yyl-npm-practice'
-import computerRoom from '/Users/cheng/workspace/yyl-npm-practice/src/utils/computerRoom.ftl'
-import dataCenterTemplate from '/Users/cheng/workspace/yyl-npm-practice/src/utils/dataCenter.ftl'
+import computerRoom from '/Users/cheng/workspace/yyl-npm-practice/src/utils/tempData/computerRoom.ftl'
+import dataCenterTemplate from '/Users/cheng/workspace/yyl-npm-practice/src/utils/tempData/dataCenter.ftl'
 // import cover from '/Users/cheng/workspace/yyl-npm-practice/src/utils/cover.ftl'
 import cover from '/Users/cheng/workspace/yyl-npm-practice/src/utils/tempData/cover.ftl'
 import integration from '/Users/cheng/workspace/yyl-npm-practice/src/utils/integration.ftl'
@@ -315,7 +315,7 @@ export default {
                         "colM1Size": 284544,
                         "colM2Size": 0,
                         "dataQualityPercent": 0.4561,
-                        "qualityStar": "3中",
+                        "qualityStar": "3",
                         "subTbName": "dev_type_2",
                         "idAirInformation": null,
                         "abnormalFieldsAdvice": [],
@@ -330,7 +330,7 @@ export default {
                         "colM1Size": 31954176,
                         "colM2Size": 0,
                         "dataQualityPercent": 0.4316,
-                        "qualityStar": "3中",
+                        "qualityStar": "3",
                         "subTbName": "dev_type_3",
                         "idAirInformation": null,
                         "abnormalFieldsAdvice": [],
@@ -345,7 +345,7 @@ export default {
                         "colM1Size": 85,
                         "colM2Size": 0,
                         "dataQualityPercent": 0.2,
-                        "qualityStar": "2中",
+                        "qualityStar": "2",
                         "subTbName": "-1",
                         "idAirInformation": null,
                         "abnormalFieldsAdvice": [],
@@ -360,7 +360,7 @@ export default {
                         "colM1Size": 235008,
                         "colM2Size": 0,
                         "dataQualityPercent": 0.4183,
-                        "qualityStar": "3中",
+                        "qualityStar": "3",
                         "subTbName": "-1",
                         "idAirInformation": 1,
                         "abnormalFieldsAdvice": [],
@@ -385,7 +385,7 @@ export default {
                       "colM1Size": 2,
                       "colM2Size": 2,
                       "dataQualityPercent": 0.6667,
-                      "qualityStar": "4好",
+                      "qualityStar": "4",
                       "subTbName": "-1",
                       "idAirInformation": -1,
                       "abnormalFieldsAdvice": [
@@ -417,7 +417,7 @@ export default {
                       "colM1Size": 29203200,
                       "colM2Size": 0,
                       "dataQualityPercent": 1.0,
-                      "qualityStar": "1差",
+                      "qualityStar": "1",
                       "subTbName": "-1",
                       "idAirInformation": 1,
                       "abnormalFieldsAdvice": [
@@ -441,7 +441,7 @@ export default {
                       "colM1Size": 128,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.5,
-                      "qualityStar": "3中",
+                      "qualityStar": "3",
                       "subTbName": "-1",
                       "idAirInformation": null,
                       "abnormalFieldsAdvice": [
@@ -585,7 +585,7 @@ export default {
                       "colM1Size": 437760,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.9896,
-                      "qualityStar": "5好",
+                      "qualityStar": "5",
                       "subTbName": "dev_type_1",
                       "idAirInformation": null,
                       "abnormalFieldsAdvice": [
@@ -633,7 +633,7 @@ export default {
                       "colM1Size": 262656,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.4211,
-                      "qualityStar": "3中",
+                      "qualityStar": "3",
                       "subTbName": "dev_type_2",
                       "idAirInformation": null,
                       "abnormalFieldsAdvice": [],
@@ -648,7 +648,7 @@ export default {
                       "colM1Size": 15919200,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.3384,
-                      "qualityStar": "2中",
+                      "qualityStar": "2",
                       "subTbName": "dev_type_3",
                       "idAirInformation": null,
                       "abnormalFieldsAdvice": [],
@@ -663,7 +663,7 @@ export default {
                       "colM1Size": 80,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.2,
-                      "qualityStar": "2中",
+                      "qualityStar": "2",
                       "subTbName": "-1",
                       "idAirInformation": null,
                       "abnormalFieldsAdvice": [],
@@ -678,7 +678,7 @@ export default {
                       "colM1Size": 297216,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.5972,
-                      "qualityStar": "3中",
+                      "qualityStar": "3",
                       "subTbName": "-1",
                       "idAirInformation": 1,
                       "abnormalFieldsAdvice": [
@@ -778,7 +778,7 @@ export default {
                           "colM1Size": 0,
                           "colM2Size": 72,
                           "dataQualityPercent": 0.9,
-                          "qualityStar": "5好",
+                          "qualityStar": "5",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [
@@ -848,7 +848,7 @@ export default {
                               }
                           ],
                           "sasize": 16,
-                          "stime": 0
+                          "stime": -1
                       },
                       {
                           "tableEnName": "dwd_eda_res_dc_weather_data_day",
@@ -858,7 +858,7 @@ export default {
                           "colM1Size": 0,
                           "colM2Size": 0,
                           "dataQualityPercent": 0.0,
-                          "qualityStar": "1差",
+                          "qualityStar": "1",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [],
@@ -873,7 +873,7 @@ export default {
                           "colM1Size": 9216,
                           "colM2Size": 1152,
                           "dataQualityPercent": 0.1875,
-                          "qualityStar": "1差",
+                          "qualityStar": "1",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [],
@@ -888,7 +888,7 @@ export default {
                           "colM1Size": 24960,
                           "colM2Size": 1920,
                           "dataQualityPercent": 0.7,
-                          "qualityStar": "4好",
+                          "qualityStar": "4",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [
@@ -944,7 +944,7 @@ export default {
                           "colM1Size": 14976,
                           "colM2Size": 0,
                           "dataQualityPercent": 0.2308,
-                          "qualityStar": "2中",
+                          "qualityStar": "2",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [],
@@ -959,7 +959,7 @@ export default {
                           "colM1Size": 26880,
                           "colM2Size": 1920,
                           "dataQualityPercent": 0.75,
-                          "qualityStar": "4好",
+                          "qualityStar": "4",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [
@@ -1252,7 +1252,7 @@ export default {
                         "colM1Size": 284544,
                         "colM2Size": 0,
                         "dataQualityPercent": 0.4561,
-                        "qualityStar": "3中",
+                        "qualityStar": "3",
                         "subTbName": "dev_type_2",
                         "idAirInformation": null,
                         "abnormalFieldsAdvice": [],
@@ -1267,7 +1267,7 @@ export default {
                         "colM1Size": 31954176,
                         "colM2Size": 0,
                         "dataQualityPercent": 0.4316,
-                        "qualityStar": "3中",
+                        "qualityStar": "3",
                         "subTbName": "dev_type_3",
                         "idAirInformation": null,
                         "abnormalFieldsAdvice": [],
@@ -1282,7 +1282,7 @@ export default {
                         "colM1Size": 85,
                         "colM2Size": 0,
                         "dataQualityPercent": 0.2,
-                        "qualityStar": "2中",
+                        "qualityStar": "2",
                         "subTbName": "-1",
                         "idAirInformation": null,
                         "abnormalFieldsAdvice": [],
@@ -1297,7 +1297,7 @@ export default {
                         "colM1Size": 235008,
                         "colM2Size": 0,
                         "dataQualityPercent": 0.4183,
-                        "qualityStar": "3中",
+                        "qualityStar": "3",
                         "subTbName": "-1",
                         "idAirInformation": 1,
                         "abnormalFieldsAdvice": [],
@@ -1322,7 +1322,7 @@ export default {
                       "colM1Size": 2,
                       "colM2Size": 2,
                       "dataQualityPercent": 0.6667,
-                      "qualityStar": "4好",
+                      "qualityStar": "4",
                       "subTbName": "-1",
                       "idAirInformation": -1,
                       "abnormalFieldsAdvice": [
@@ -1354,7 +1354,7 @@ export default {
                       "colM1Size": 29203200,
                       "colM2Size": 0,
                       "dataQualityPercent": 1.0,
-                      "qualityStar": "1差",
+                      "qualityStar": "1",
                       "subTbName": "-1",
                       "idAirInformation": 1,
                       "abnormalFieldsAdvice": [
@@ -1378,7 +1378,7 @@ export default {
                       "colM1Size": 128,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.5,
-                      "qualityStar": "3中",
+                      "qualityStar": "3",
                       "subTbName": "-1",
                       "idAirInformation": null,
                       "abnormalFieldsAdvice": [
@@ -1522,7 +1522,7 @@ export default {
                       "colM1Size": 437760,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.9896,
-                      "qualityStar": "5好",
+                      "qualityStar": "5",
                       "subTbName": "dev_type_1",
                       "idAirInformation": null,
                       "abnormalFieldsAdvice": [
@@ -1570,7 +1570,7 @@ export default {
                       "colM1Size": 262656,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.4211,
-                      "qualityStar": "3中",
+                      "qualityStar": "3",
                       "subTbName": "dev_type_2",
                       "idAirInformation": null,
                       "abnormalFieldsAdvice": [],
@@ -1585,7 +1585,7 @@ export default {
                       "colM1Size": 15919200,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.3384,
-                      "qualityStar": "2中",
+                      "qualityStar": "2",
                       "subTbName": "dev_type_3",
                       "idAirInformation": null,
                       "abnormalFieldsAdvice": [],
@@ -1600,7 +1600,7 @@ export default {
                       "colM1Size": 80,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.2,
-                      "qualityStar": "2中",
+                      "qualityStar": "2",
                       "subTbName": "-1",
                       "idAirInformation": null,
                       "abnormalFieldsAdvice": [],
@@ -1615,7 +1615,7 @@ export default {
                       "colM1Size": 297216,
                       "colM2Size": 0,
                       "dataQualityPercent": 0.5972,
-                      "qualityStar": "3中",
+                      "qualityStar": "3",
                       "subTbName": "-1",
                       "idAirInformation": 1,
                       "abnormalFieldsAdvice": [
@@ -1713,7 +1713,7 @@ export default {
                           "colM1Size": 0,
                           "colM2Size": 72,
                           "dataQualityPercent": 0.9,
-                          "qualityStar": "5好",
+                          "qualityStar": "5",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [
@@ -1793,7 +1793,7 @@ export default {
                           "colM1Size": 0,
                           "colM2Size": 0,
                           "dataQualityPercent": 0.0,
-                          "qualityStar": "1差",
+                          "qualityStar": "1",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [],
@@ -1808,7 +1808,7 @@ export default {
                           "colM1Size": 9216,
                           "colM2Size": 1152,
                           "dataQualityPercent": 0.1875,
-                          "qualityStar": "1差",
+                          "qualityStar": "1",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [],
@@ -1823,7 +1823,7 @@ export default {
                           "colM1Size": 24960,
                           "colM2Size": 1920,
                           "dataQualityPercent": 0.7,
-                          "qualityStar": "4好",
+                          "qualityStar": "4",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [
@@ -1879,7 +1879,7 @@ export default {
                           "colM1Size": 14976,
                           "colM2Size": 0,
                           "dataQualityPercent": 0.2308,
-                          "qualityStar": "2中",
+                          "qualityStar": "2",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [],
@@ -1894,7 +1894,7 @@ export default {
                           "colM1Size": 26880,
                           "colM2Size": 1920,
                           "dataQualityPercent": 0.75,
-                          "qualityStar": "4好",
+                          "qualityStar": "4",
                           "subTbName": null,
                           "idAirInformation": null,
                           "abnormalFieldsAdvice": [

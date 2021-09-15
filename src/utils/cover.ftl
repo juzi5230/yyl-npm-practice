@@ -13,13 +13,13 @@
       font-size: 40px;
       font-weight: bold;
       position: absolute;
-      top: 20%;
       width: 100%;
       text-align: center;
+      padding-top: 200px;
   }
 </style>
 </head>
 <body>
-   <div class="cover">${dcList.provName}${dcList.dcName}</div>
+   <div class="cover">${data.provName}${data.dcName}数据质量报告</div>
 </body>
 </html>
