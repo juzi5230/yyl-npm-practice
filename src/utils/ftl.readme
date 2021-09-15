@@ -1,0 +1,5 @@
+(tdDetail.fieldQualityPercent * 100)?int // 后端环境可以识别
+==/!=
+
+<#if detail.abnormalFieldsAdvice?size > 0> 后端报错，
+修改为<#if (detail.abnormalFieldsAdvice?size > 0)>

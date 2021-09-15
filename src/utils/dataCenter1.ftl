@@ -64,16 +64,18 @@
 </style>
 </head>
 <body>
-   <#list roomList as list>
-    <a name="${list.provName} ${list.dcName} ${list.roomName}" class="main-title algn-center block">${list.provName} ${list.dcName} ${list.roomName}</a>
-    <#list list.tableList as detail>    
+<#assign foo = true>
+${foo?then('Y', 'N')}
+
+    <a name="${data.provName} ${data.dcName}" class="main-title algn-center block">${data.provName} ${data.dcName}</a>
+    <#list data.dcTableList as detail>
         <div class="report-block  break-page" >
           <div>
             <a name="${detail.tableZhName}" class="sub-title">${detail_index + 1}、 ${detail.tableZhName}</a>
-            <span>(质量星级: 
-              <#if detail.qualityStar == 5 || detail.qualityStar == 4>
+            <span>(质量星级:
+              <#if detail.qualityStar == 5>
                 好
-              <#elseif detail.qualityStar == 3>
+              <#elseif detail.qualityStar == 4 || detail.qualityStar == 3>
                 中
               <#else>
                 差
@@ -119,7 +121,7 @@
           -->
           <div>
             <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
-              <#if detail.abnormalFieldsAdvice?size > 0>
+              <#if detail.abnormalFieldsAdvice?size>
                 <tr class="th">
                    <td>异常字段名称</td>
                    <td>为空和异常数占比</td>
@@ -129,7 +131,7 @@
               <#list detail.abnormalFieldsAdvice as tdDetail>
                  <tr>
                    <td>${tdDetail.colName}</td>
-                   <td>${tdDetail.fieldQualityPercent * 100} %</td>
+                   <td>${(tdDetail.fieldQualityPercent * 100)} % </td>
                    <td>${tdDetail.fieldAdvice}</td>
                  </tr>
               </#list>
@@ -137,6 +139,5 @@
           </div>
         </div>
     </#list>
-  </#list>
 </body>
 </html>

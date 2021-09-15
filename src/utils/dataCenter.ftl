@@ -26,6 +26,7 @@
   }
   .th {
       background: lightgrey;
+      text-alg
   }
   .break-page {
     page-break-after: always;
@@ -64,16 +65,15 @@
 </style>
 </head>
 <body>
-   <#list roomList as list>
-    <a name="${list.provName} ${list.dcName} ${list.roomName}" class="main-title algn-center block">${list.provName} ${list.dcName} ${list.roomName}</a>
-    <#list list.tableList as detail>    
+    <a name="${data.provName} ${data.dcName}" class="main-title algn-center block">${data.provName} ${data.dcName}</a>
+    <#list data.dcTableList as detail>
         <div class="report-block  break-page" >
           <div>
             <a name="${detail.tableZhName}" class="sub-title">${detail_index + 1}、 ${detail.tableZhName}</a>
-            <span>(质量星级: 
-              <#if detail.qualityStar == 5 || detail.qualityStar == 4>
+            <span>(质量星级:
+              <#if detail.qualityStar == 5>
                 好
-              <#elseif detail.qualityStar == 3>
+              <#elseif detail.qualityStar == 4 || detail.qualityStar == 3>
                 中
               <#else>
                 差
@@ -98,28 +98,12 @@
               该表要求每小时上传一条数据，目前上传频率不符合要求
             </p>
           </#if>
-          <#--
-            <div>
-              <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
-                  <tr class="th">
-                     <#list detail.abnormalFieldsAdvice as thDetail>
-                       <td>${thDetail.colName}</td>
-                     </#list>
-                  </tr>
-                  <tr>
-                     <#list detail.abnormalFieldsAdvice as tdDetail>
-                       <td>${tdDetail.fieldQualityPercent}</td>
-                     </#list>
-                  </tr>
-              </table>
-              <#if detail.attation??>
-                <div>${detail.attation}</div>
-              </#if>
-            </div>
-          -->
           <div>
             <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
-              <#if detail.abnormalFieldsAdvice?size > 0>
+              <#if detail.abnormalFieldsAdvice?size>
+                <tr class="th">
+                  <td colspan=3 >${detail.tableZhName}质量评估</td>
+                </tr>
                 <tr class="th">
                    <td>异常字段名称</td>
                    <td>为空和异常数占比</td>
@@ -129,7 +113,7 @@
               <#list detail.abnormalFieldsAdvice as tdDetail>
                  <tr>
                    <td>${tdDetail.colName}</td>
-                   <td>${tdDetail.fieldQualityPercent * 100} %</td>
+                   <td>${tdDetail.fieldQualityPercent * 100}%</td>
                    <td>${tdDetail.fieldAdvice}</td>
                  </tr>
               </#list>
@@ -137,6 +121,5 @@
           </div>
         </div>
     </#list>
-  </#list>
 </body>
 </html>

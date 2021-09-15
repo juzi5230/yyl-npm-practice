@@ -27,9 +27,6 @@
   .th {
       background: lightgrey;
   }
-  .break-page {
-    page-break-after: always;
-  }
   .report-block {
     margin: 40px 20px;
   }
@@ -64,16 +61,15 @@
 </style>
 </head>
 <body>
-   <#list roomList as list>
-    <a name="${list.provName} ${list.dcName} ${list.roomName}" class="main-title algn-center block">${list.provName} ${list.dcName} ${list.roomName}</a>
-    <#list list.tableList as detail>    
-        <div class="report-block  break-page" >
+    <a name="${data.provName} ${data.dcName} ${data.roomName}" class="main-title algn-center block">${data.provName} ${data.dcName} ${data.roomName}</a>
+    <#list data.tableList as detail>    
+        <div class="report-block" >
           <div>
             <a name="${detail.tableZhName}" class="sub-title">${detail_index + 1}、 ${detail.tableZhName}</a>
             <span>(质量星级: 
-              <#if detail.qualityStar == 5 || detail.qualityStar == 4>
+              <#if detail.qualityStar == "5" ||detail.qualityStar == "4">
                 好
-              <#elseif detail.qualityStar == 3>
+              <#elseif detail.qualityStar == "3" || detail.qualityStar == "2">
                 中
               <#else>
                 差
@@ -119,7 +115,7 @@
           -->
           <div>
             <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
-              <#if detail.abnormalFieldsAdvice?size > 0>
+              <#if (detail.abnormalFieldsAdvice?size > 0)>
                 <tr class="th">
                    <td>异常字段名称</td>
                    <td>为空和异常数占比</td>
@@ -137,6 +133,5 @@
           </div>
         </div>
     </#list>
-  </#list>
 </body>
 </html>
