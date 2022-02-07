@@ -73,14 +73,11 @@
     visibility: hidden;
     height: 0;
   }/*清浮动*/
-  ul li {
-    list-style:none;
-    float:left;
+  .star {
     font-size: 12px;
     margin:5px;
     color:#ccc;
-    cursor:pointer;
-  }/*五角星样式*/
+  }
   .hs,.cs{color:#f00;}
 </style>
 </head>
@@ -91,15 +88,15 @@
           <div>
             <a name="${detail.tableZhName}" class="sub-title">${detail_index + 1}、 ${detail.tableZhName}</a>
             <span>(质量星级:
-              <ul class="cleanfloat">
+              <span class="cleanfloat">
                   <#list 1..5 as a>
                     <#if a_index + 1 lte detail.qualityStar>
-                      <li class="cs">&#9733;</li>
+                      <span class="cs star">&#9733;</span>
                     <#else>
-                      <li class="">&#9733;</li>
+                      <span class="star">&#9733;</span>
                     </#if>
                   </#list>
-              </ul>
+              </span>
               <#if detail.qualityStar == 5>
                 好
               <#elseif detail.qualityStar == 4 || detail.qualityStar == 3>

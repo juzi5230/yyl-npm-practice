@@ -89,12 +89,21 @@
 </head>
 <body>
    <#list roomList as list>
-    <a name="${list.provName} ${list.dcName} ${list.roomName}" class="main-title algn-center block">${list.provName} ${list.dcName} ${list.roomName}</a>
+    <a name="${list.provName} ${list.dcName} ${list.roomName}" class="main-title algn-center block">${list.roomName}</a>
     <#list list.tableList as detail>    
         <div class="report-block" >
           <div>
             <a name="${detail.tableZhName}" class="sub-title">${detail_index + 1}、 ${detail.tableZhName}</a>
             <span>(质量星级: 
+              <ul class="cleanfloat">
+                  <#list 1..5 as a>
+                    <#if (a_index + 1 lte detail.qualityStar)>
+                      <li class="cs">&#9733;</li>
+                    <#else>
+                      <li class="">&#9733;</li>
+                    </#if>
+                  </#list>
+              </ul>
               <#if detail.qualityStar == 5 || detail.qualityStar == 4>
                 好
               <#elseif detail.qualityStar == 3>

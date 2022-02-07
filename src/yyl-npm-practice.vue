@@ -15,7 +15,9 @@
       <van-cell>
         <template #title>
           <i>123</i>
-          <span class="custom-title">单元格</span>
+          <span class="custom-title">单元格
+            <div class="test"></div>
+          </span>
         </template>
       </van-cell>
     </van-cell-group>
@@ -79,5 +81,10 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+}
+.test {
+  width: 200px;
+  height: 200px;
+  background: url('./assets/logo.png');
 }
 </style>

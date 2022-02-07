@@ -20,26 +20,39 @@
     margin-left: auto;
   }
   .table td {
-    border-collapse: collapse;
-    padding: 7px;
+    height: 44px;
+    line-height: 44px;
   }
   .table-content {
+    font-size: 14px;
     border: none;
-    border-bottom: 1px solid #f1f1;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
+  .table-content td {
+    padding-left: 13px;
+  }
+  .params {
+    font-weight: 600;
   }
   .th {
-      background: #f1f1f1;
-      text-align: center;
-      border: 1px solid #cccccc;
+    background: rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
   }
   .report-block {
-    margin: 40px 20px;
+    margin: 0 20px 23px;
   }
   .main-title {
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 600;
   }
   .sub-title {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
   }
   .algn-center {
     text-align: center;
@@ -72,37 +85,40 @@
     content:"";
     visibility: hidden;
     height: 0;
-  }/*清浮动*/
-  ul li {
-    list-style:none;
-    float:left;
-    font-size: 12px;
-    margin:5px;
-    color:#ccc;
-    cursor:pointer;
-  }/*五角星样式*/
-  .hs,.cs{color:#f00;}
+  }
+  .cleanfloat span {
+    font-size: 16px;
+    margin:3px;
+  }
+  .hs,.cs{color:#f7ce46;}
+  .data-quality {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .annotation {
+    font-size: 14px;
+    font-weight: 600;
+  }
 </style>
 </head>
 <body>
-    <a name="${data.provName} ${data.dcName} ${data.roomName}" class="main-title algn-center block">${data.provName} ${data.dcName} ${data.roomName}</a>
+    <a name="${data.roomName}" class="main-title algn-center block">${data.roomName}</a>
     <#list data.tableList as detail>    
         <div class="report-block">
           <div>
             <a name="${detail.tableZhName}" class="sub-title">${detail_index + 1}、 ${detail.tableZhName}</a>
-            <span>(质量星级: 
-              <ul class="cleanfloat">
-                  <#list 1..5 as a>
-                    <#if a_index + 1 lte detail.qualityStar>
-                      <li class="cs">&#9733;</li>
-                    <#else>
-                      <li class="">&#9733;</li>
-                    </#if>
-                  </#list>
-              </ul>
-              <#if detail.qualityStar == "5" ||detail.qualityStar == "4">
-                好
-              <#elseif detail.qualityStar == "3" || detail.qualityStar == "2">
+            <span class="cleanfloat">
+                <#list 1..5 as a>
+                  <#--<#if (a_index + 1 lte detail.qualityStar)>-->
+                  <#if a_index + 1 lte detail.qualityStar>
+                    <span class="cs">&#9733;</span>
+                  </#if>
+                </#list>
+            </span>
+            <span class="data-quality">(数据质量: 
+              <#if detail.qualityStar == 5 ||detail.qualityStar == 4>
+                优
+              <#elseif detail.qualityStar == 3 || detail.qualityStar == 2>
                 中
               <#else>
                 差
@@ -113,7 +129,7 @@
             <tr class="th sub-title">
               <td colspan=5>${detail.tableZhName}质量评估</td>
             </tr>
-            <tr class="table-content">
+            <tr class="table-content params">
                <td>实际上传/条</td>
                <td>正确上传/条</td>
                <td>共需上传字段/条</td>
@@ -128,28 +144,27 @@
               <td>${detail.colM1Size}</td>
             </tr>
           </table>
-          <p class="annotation">
           <#if detail.tableEnName == 'dwd_eda_res_dc_air_conditioner_data_day'>
             <#if detail.idAirInformation == 1>
-              其它：与空调静态数据表ID一致；与空调静态数据表条数一致。
+              <p class="annotation">数据要求：与空调静态数据表ID一致；与空调静态数据表条数一致。</p>
             </#if>
             <#if detail.idAirInformation != 1>
-              其它：与空调静态数据表ID不一致；与空调静态数据表条数不一致。
+              <p class="annotation">数据要求：与空调静态数据表ID不一致；与空调静态数据表条数不一致。</p>
             </#if>
           </#if>
-          </p>
           <#if detail.stime == -1>
             <p class="annotation">
-              该表要求每小时上传一条数据，目前上传频率不符合要求
+              数据要求：该表要求每小时上传一条数据，目前上传频率不符合要求
             </p>
           </#if>
           <div>
             <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
-              <#if (detail.abnormalFieldsAdvice?size > 0)>
+              <#--<#if (detail.abnormalFieldsAdvice?size > 0)>-->
+              <#if detail.abnormalFieldsAdvice?size > 0>
                 <tr class="th sub-title">
                   <td colspan=3 >问题明细</td>
                 </tr>
-                <tr class=" class="table-content"">
+                <tr class="table-content params">
                    <td>异常字段名称</td>
                    <td>为空和异常数占比</td>
                    <td>建议</td>
