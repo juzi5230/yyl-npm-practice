@@ -95,7 +95,81 @@ export default {
                         "qualityStar": "4",
                         "subTbName": "-1",
                         "idAirInformation": 1,
-                        "abnormalFieldsAdvice1": [], "abnormalFieldsAdvice": [
+                        "abnormalFieldsAdvice1": [
+                            {
+                                'id': '123123',
+                                "colName": "IT设备总能耗",
+                                "type": "定植异常",
+                                "count": "10/ 23",
+                                "example": "[30, 50](%)",
+                                "rowspan": 5
+                            },
+                            {
+                                'id': '123123',
+                                "colName": "IT设备总能耗",
+                                "type": "定植异常",
+                                "count": "10/ 23",
+                                "example": "[30, 50](%)",
+                                "rowspan": 0
+                            },
+                            {
+                                'id': '123123',
+                                "colName": "IT设备总能耗",
+                                "type": "定植异常",
+                                "count": "10/ 23",
+                                "example": "[30, 50](%)",
+                                "rowspan": 0
+                            },
+                            {
+                                'id': '123123',
+                                "colName": "IT设备总能耗",
+                                "type": "定植异常",
+                                "count": "10/ 23",
+                                "example": "[30, 50](%)",
+                                "rowspan": 0
+                            },
+                            {
+                                'id': '123123',
+                                "colName": "IT设备总能耗",
+                                "type": "定植异常",
+                                "count": "10/ 23",
+                                "example": "[30, 50](%)",
+                                "rowspan": 0
+                            },
+                            {
+                                'id': '12312300',
+                                "colName": "IT设备总能耗",
+                                "type": "定植异常",
+                                "count": "10/ 23",
+                                "example": "[30, 50](%)",
+                                "rowspan": 3
+                            },
+                            {
+                                'id': '12312300',
+                                "colName": "IT设备总能耗",
+                                "type": "定植异常",
+                                "count": "10/ 23",
+                                "example": "[30, 50](%)",
+                                "rowspan": 0
+                            },
+                            {
+                                'id': '12312300',
+                                "colName": "IT设备总能耗",
+                                "type": "定植异常",
+                                "count": "10/ 23",
+                                "example": "[30, 50](%)",
+                                "rowspan": 0
+                            },
+                            {
+                                'id': '12312312',
+                                "colName": "IT设备总能耗",
+                                "type": "定植异常",
+                                "count": "10/ 23",
+                                "example": "[30, 50](%)",
+                                "rowspan": 1
+                            }
+                        ],
+                        "abnormalFieldsAdvice": [
                             {
                                 "errorCol": "it_power",
                                 "colName": "IT设备总能耗",
