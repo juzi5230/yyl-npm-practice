@@ -13,6 +13,18 @@
     border-collapse: collapse;
     border-spacing: 0;
   }
+  .attention {
+    margin: 0 20px 23px;
+  }
+  .attention-th {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .attention .title {
+    text-align: center;
+    font-size: 14px;
+    margin: 20px;
+  }
   .table {
     margin-top: 0;
     margin-right: auto;
@@ -47,7 +59,6 @@
   }
   .report-block {
     margin: 0 20px 23px;
-    position: relative;
     font-size: 0;
   }
   .main-title {
@@ -57,6 +68,7 @@
   .sub-title {
     font-size: 18px;
     font-weight: 600;
+    position: relative;
   }
   .algn-center {
     text-align: center;
@@ -82,7 +94,6 @@
   }
   .qualityStar {
     position: absolute;
-    top: 25px;
     line-height: 45px;
     left: 100px;
   }
@@ -102,10 +113,6 @@
   .data-quality {
     font-size: 14px;
     font-weight: 600;
-    position: absolute;
-    top: 25px;
-    left: 13px;
-    line-height: 45px;
   }
   .annotation {
     font-size: 14px;
@@ -127,6 +134,11 @@
     height: 30px!important;
     line-height: 30px!important;
   }
+  .quality-container {
+    position: absolute;
+    line-height: 45px;
+    margin-left: 13px;
+  }
   .abnormal-th td{
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
@@ -136,44 +148,78 @@
   .abnormal-th td:last-child {
     border-right: none;
   }
+  .cleanfloat {
+    display: inline-block;
+  }
+  .cleanfloat::after{
+    display: block;
+    clear: both;
+    content:"";
+    visibility: hidden;
+    height: 0;
+  }
+  .cleanfloat span {
+    font-size: 14px;
+  }
+  .attention .padding0 {
+    padding-left: 0;
+  }
+  .colNum {
+    padding-left: 0;
+    width: 40px;
+  }
 </style>
 </head>
 
 <body>
-
-    <script>
-      var s = '2131231';
-    <#list data.tableList as detail>
-      //document.querySelect('.report-block')[detail_index]
-      console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>', detail)
-    </#list>
-    </script>
-    <a name="${data.roomName}" class="main-title algn-center block">${data.roomName}</a>
+    <a name="${data.roomName}" class="main-title algn-center block">${data.roomName}</a> 
+    <div class="attention">
+      <div class="title">本文档使用的异常类型术语一览表</div>
+      <#assign tableMapTh=['范围异常', '定值异常', '值异常', '额定风速小于最小风速']/>
+      <#assign tableMapTd=["该设备或信号上传的数据不符合正常情况时数据的范围","该设备或信号上传的动态数据，全天所有数据为一个固定值，事实上，动态数据会随着时间的推移有所波动","该设备或信号上传的数据为空或不符合数据字段类型要求","空调风机额定转速百分比小于空调最小风机转速百分比，违背正常空调设置逻辑"]/>
+      <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
+        <tr class="th attention-th question-detail">
+          <td class="algn-center colNum">序号</td>
+          <td>异常类型</td>
+          <td>解释</td>
+        </tr>
+        <#list tableMapTh as tdDetail>
+           <tr class="table-content abnormal-th">
+            <td class="abnormal-size algn-center padding0">${tdDetail_index + 1}</td>
+            <td class="abnormal-size">${tdDetail}</td>
+            <td class="abnormal-size">${tableMapTd[tdDetail_index]}</td>
+           </tr>
+        </#list>
+      </table>
+    </div>
     <#list data.tableList as detail>    
         <div class="report-block">
           <div>
             <a name="${detail.tableZhName}" class="sub-title">${detail_index + 1}、 ${detail.tableZhName}</a>
-            <span class="qualityStar">
-                <#list 1..5 as a>
-                  <!--<#if (a_index + 1 lte detail.qualityStar)>-->
-                  <#if a_index + 1 lte detail.qualityStar>
-                    <span class="cs">&#9733;</span>
-                  </#if>
-                </#list>
-            </span>
-            <span class="data-quality">(数据质量: 
-              <#if detail.qualityStar == 5 ||detail.qualityStar == 4>
-                优
-              <#elseif detail.qualityStar == 3 || detail.qualityStar == 2>
-                中
-              <#else>
-                差
-              </#if>)
-            </span>
           </div>
           <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
             <tr class="th sub-title">
-              <td colspan=5>${detail.tableZhName}质量评估</td>
+              <td colspan=5>       
+                <div class="quality-container">
+                  <span class="data-quality">(数据质量: 
+                    <#if detail.qualityStar == 5 ||detail.qualityStar == 4>
+                      优
+                    <#elseif detail.qualityStar == 3 || detail.qualityStar == 2>
+                      中
+                    <#else>
+                      差
+                    </#if>)
+                  </span>
+                  <span class="cleanfloat">
+                      <#list 1..5 as a>
+                        <#if (a_index + 1 lte detail.qualityStar)>
+                        <#-- <#if a_index + 1 lte detail.qualityStar>-->
+                          <span class="cs">&#9733;</span>
+                        </#if>
+                      </#list>
+                  </span>
+                </div>
+              ${detail.tableZhName}质量评估</td>
             </tr>
             <tr class="table-content params">
                <td>实际上传记录条数/条</td>
@@ -203,8 +249,8 @@
               数据要求：该表要求每小时上传一条数据，目前上传频率不符合要求
             </p>
           </#if>
-          <!--<#if (detail.abnormalFieldsAdvice?size > 0)>-->
-          <#if detail.abnormalFieldsAdvice?size > 0>
+          <#if (detail.abnormalFieldsAdvice?size > 0)>
+          <#--<#if detail.abnormalFieldsAdvice?size > 0>-->
             <div>
               <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
                   <tr class="th sub-title question-detail">
@@ -224,13 +270,14 @@
                 </#list>
               </table>
             </div>
+          </#if>
+          <#--<#if detail.devList?size > 0>-->
+          <#if (detail.devList?size > 0)>
             <div>
               <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" class="table">
                   <tr class="th sub-title question-detail">
                     <td colspan=15 >问题明细</td>
                   </tr>
-                  <tr><td colspan=15 class="abnormal">122313132</td></tr>
-                  <tr><td colspan=15 class="abnormal">122313132</td></tr>
                   <tr class="table-content params abnormal-th" rowspan=1>
                      <td>设备ID</td>
                      <td>异常字段</td>
@@ -238,16 +285,38 @@
                      <td>错误数/已上传数</td>
                      <td>异常值示例[最小值，最大值]</td>
                   </tr>
-                <#list detail.abnormalFieldsAdvice1 as tdDetail>
-                   <tr class="table-content abnormal-th">
-                    <#if tdDetail.rowspan > 0>
-                      <td class="abnormal-size" rowspan=${tdDetail.rowspan}>${tdDetail.id}.......${detail.abnormalFieldsAdvice1[tdDetail_index]['rowspan']}</td>
-                    </#if>
-                    <td class="abnormal-size">${tdDetail.colName}</td>
-                    <td class="abnormal-size">${tdDetail.type}</td>
-                    <td class="abnormal-size">${tdDetail.count}</td>
-                    <td class="abnormal-size">${tdDetail.example}</td>
-                   </tr>
+                <#list detail.devList as tdDetail>
+                  <tr class="table-content abnormal-th">
+                   <#if tdDetail_index == 0 || tdDetail.devId != detail.devList[tdDetail_index - 1].devId>
+                     <td class="abnormal-size" rowspan=${tdDetail.errColNum}>${tdDetail.devId}</td>
+                   </#if>
+                   <td class="abnormal-size">
+					          <#if tdDetail.colName == "-1">空值
+					            <#else>
+					        	${tdDetail.colName}
+					          </#if>
+					          </td>
+                    <td class="abnormal-size">
+					            <#if tdDetail.errType == "-1">空值
+					               <#else>
+					           	${tdDetail.errType}
+					            </#if>					
+					          </td>
+                    <td class="abnormal-size">${tdDetail.errValueNmu}/${tdDetail.sumColMSize}</td>
+                    <td class="abnormal-size">[
+					            <#if tdDetail.minVal == -1.0>空值
+					               <#else>
+					           	${tdDetail.minVal}
+					            </#if>,
+					            <#if tdDetail.maxVal == -1.0> 空值
+					              <#else> ${tdDetail.maxVal}
+					            </#if>
+					            ] (
+					            <#if tdDetail.colUnit == "-1">${''}
+					              <#else> ${tdDetail.colUnit}
+					            </#if>)
+					          </td>
+                  </tr>
                 </#list>
               </table>
             </div>

@@ -98,7 +98,8 @@
     height: 0;
   }
   .cleanfloat span {
-    font-size: 14px;
+    font-size: 16px;
+    margin:3px;
   }
   .hs,.cs{color:#f7ce46;}
   .data-quality {
@@ -275,7 +276,7 @@
                   </tr>
                 <#list detail.devList as tdDetail>
                    <tr class="table-content abnormal-th">
-                    <#if tdDetail_index == 0 || tdDetail.devId != detail.devList[tdDetail_index - 1].devId>
+                    <#if tdDetail_index === 0 || tdDetail.devId !== detail.devList[tdDetail_index - 1].devId>
                       <td class="abnormal-size" rowspan=${tdDetail.errColNum}>${tdDetail.devId}</td>
                     </#if>
                      <td class="abnormal-size">
