@@ -6,12 +6,12 @@
 
 <script>
 import yylnpmpractice from './yyl-npm-practice'
-import computerRoom from '/Users/cheng/workspace/yyl-npm-practice/src/utils/tempData/room.ftl'
+import computerRoom from './utils/room.ftl'
 // import dataCenterTemplate from '/Users/cheng/workspace/yyl-npm-practice/src/utils/tempData/dataCenter.ftl'
 // import cover from '/Users/cheng/workspace/yyl-npm-practice/src/utils/cover.ftl'
-import cover from '/Users/cheng/workspace/yyl-npm-practice/src/utils/tempData/dataCenterCover1.ftl'
+// import cover from '/Users/cheng/workspace/yyl-npm-practice/src/utils/tempData/dataCenterCover1.ftl'
 // import cover from '/Users/cheng/workspace/yyl-npm-practice/src/utils/tempData/roomCover1.ftl'
-import integration from '/Users/cheng/workspace/yyl-npm-practice/src/utils/integration.ftl'
+// import integration from '/Users/cheng/workspace/yyl-npm-practice/src/utils/integration.ftl'
 import a from './utils/a'
 import $ from './utils/jquery'
 export default {
